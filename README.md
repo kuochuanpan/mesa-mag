@@ -1,5 +1,9 @@
 # mesa-mag
-Compute the absolute magnitude for a given filter from MESA' history file. 
+
+Compute the absolute magnitude for a given filter from MESA' history file.
+We assume using the AB magnitude system and no extincition.  
+
+Copyright: Kuo-Chuan Pan, Hsin-Pei Chen, and Shiau-Jie Rau
 
 ## Installation
 
@@ -41,3 +45,7 @@ plt.ylabel('Absolute Magnitude')
 plt.xscale('log')
 plt.show()
 ```
+
+## References
+
+* Please cite [Pan, Ricker, & Taam (2014)](https://ui.adsabs.harvard.edu/abs/2014ApJ...792...71P/abstract) and [Chen, Rau, & Pan (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...949..121C/abstract).
