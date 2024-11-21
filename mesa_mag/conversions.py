@@ -43,15 +43,15 @@ def get_absolute_magnitude(sim_path, filter, history_file='history.data', filter
     
     # constants
     h = 6.62607015e-34 # [m^2 kg / s]
-    c = 299792458 # [m/s]
-    k = 1.380649e-23 # [m^2 kg s^-2 K^-1]
-    pc = 3.086e16 # [m]
+    c = 2.99792458e8   # [m/s]
+    k = 1.380649e-23   # [m^2 kg s^-2 K^-1]
+    pc = 3.086e16      # [m]
     
     black_body = lambda T: (2*h*c**2/wave_length**5) / (np.exp(h*c/(wave_length*k*T))-1)
 
     # calculate the absolute magnitude
     distance = 10*pc # [10 pc to m]
-    f0 = 3.631e-20 # erg cm^-2 s^-1 Hz^-1
+    f0 = 3.631e-23   # SI unit (AB system)
 
     ref_flux = np.trapz(f0*c/wave_length**2*sensitivity, x=wave_length)
 
