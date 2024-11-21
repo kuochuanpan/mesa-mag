@@ -29,7 +29,7 @@ pip install .
 
 ## Quick start
 
-1. import the package
+1. Get the absolute magnitudes
 
 ```python
 import mesa_mag
@@ -43,6 +43,21 @@ plt.plot(age, mag)
 plt.xlabel('Age [yr]')
 plt.ylabel('Absolute Magnitude')
 plt.xscale('log')
+plt.show()
+```
+
+2. Get the filter information
+
+```python
+import mesa_mag
+import matplotlib.pyplot as plt
+
+filter_name = 'HST_ACS_HRC.F555W.dat'
+data = mesa_mag.load_filter(filter_name)
+
+plt.plot(data[0],data[1])
+plt.xlabel('Wavelength [nm]')
+plt.ylabel('Transmission')
 plt.show()
 ```
 
