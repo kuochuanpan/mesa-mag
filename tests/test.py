@@ -2,22 +2,30 @@ import mesa_mag
 import matplotlib.pyplot as plt
 
 # test load meas
-path ='/lfs/data/pan/runs/snbinary/sn1a_post/pan2024/M07A20_sigma_0.05_eheat_2e+47_theat_0.00822'
+path = '/data/ceag/SNIa_MS_channel/data/MESA/20211229_heat3/2M3R'
 data = mesa_mag.load_mesa(path)
-print(data.shape)
+print(data[0])
+print(data[1])
+print(data[2])
+print(data[3])
 
 # test load filter
 filter_name = 'HST_ACS_HRC.F555W.dat'
 #filter_path = "/cluster/home/pan/codes/mesa-mag/mesa_mag/filters"
-data = mesa_mag.load_filter(filter_name,filter_path=None)
+fdata = mesa_mag.load_filter(filter_name,filter_path=None)
 
 # compuate mag
 age, mag = mesa_mag.get_absolute_magnitude(path, filter_name)
-print(mag)
+#print(mag)
 
-plt.plot(age, mag)
+plt.plot(age, mag,label='Mag')
+plt.plot(data[0], data[1],label='logT')
+plt.plot(data[0], data[2],label='logL')
+plt.plot(data[0], data[3],label='logR')
 plt.xlabel('Age [yr]')
 plt.ylabel('Absolute Magnitude')
+plt.xlim([1e-4,1e6])
+plt.legend()
 plt.xscale('log')
 plt.show()
 
