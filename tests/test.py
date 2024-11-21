@@ -15,10 +15,18 @@ filter_name = 'HST_ACS_HRC.F555W.dat'
 fdata = mesa_mag.load_filter(filter_name,filter_path=None)
 
 # compuate mag
-age, mag = mesa_mag.get_absolute_magnitude(path, filter_name)
-#print(mag)
+age, abs_mag = mesa_mag.get_absolute_magnitude(path, filter_name)
 
-plt.plot(age, mag,label='Mag')
+distance = 100 # pc
+A = 0          # Extinction
+
+age, app_mag = mesa_mag.get_apparent_magnitude(distance, 
+                                                path, 
+                                                filter_name,
+                                                extinction=A)
+
+plt.plot(age, abs_mag,label='Abs Mag')
+plt.plot(age, app_mag,label='App Mag')
 plt.plot(data[0], data[1],label='logT')
 plt.plot(data[0], data[2],label='logL')
 plt.plot(data[0], data[3],label='logR')

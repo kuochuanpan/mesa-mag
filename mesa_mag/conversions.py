@@ -63,3 +63,43 @@ def get_absolute_magnitude(sim_path, filter, history_file='history.data', filter
         abs_mag[i] = -2.5*np.log10(flux)
 
     return age, abs_mag
+
+
+def get_apparent_magnitude(distance,
+                             sim_path, 
+                             filter,
+                             extinction=0, 
+                             history_file='history.data', 
+                             filter_path=None):
+    """
+    Calculate the apparent magnitude of the star.
+
+    ---
+    Parameters:
+
+    distance: float
+        The distance to the star in parsecs.
+
+    sim_path: str
+        The path to the MESA simulation directory.
+
+    filter: str
+        The name of the filter to use.
+
+    extinction: float 
+        The extinction A_filter in magnitudes.    
+
+    history_file: str
+        The name of the history file. Default is 'history.data'.
+
+    filter_path: str
+        The path to the filter directory. Default is None.
+
+    
+    """
+
+    age, abs_mag = get_absolute_magnitude(sim_path, filter, history_file, filter_path)
+    app_mag = abs_mag + 5*np.log10(distance) - 5 + extinction
+
+    return age, app_mag
+
