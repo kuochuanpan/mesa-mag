@@ -46,7 +46,24 @@ plt.xscale('log')
 plt.show()
 ```
 
-2. Get the filter information
+2. Get the apparent magnitude
+
+```python
+import mesa_mag
+import matplotlib.pyplot as plt
+
+path   = 'mesa_job_path'
+filter = 'HST_ACS_HRC.F555W.dat'
+distance = 10 # pc
+A = 0         # mag
+
+age, app_mag = mesa_mag.get_apparent_magnitude(distance, 
+                                                path, 
+                                                filter_name,
+                                                extinction=A)
+```
+
+3. Get the filter information
 
 ```python
 import mesa_mag
