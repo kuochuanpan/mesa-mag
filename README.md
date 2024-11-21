@@ -59,7 +59,7 @@ A = 0         # mag
 
 age, app_mag = mesa_mag.get_apparent_magnitude(distance, 
                                                 path, 
-                                                filter_name,
+                                                filter,
                                                 extinction=A)
 ```
 
