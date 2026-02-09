@@ -46,7 +46,14 @@ plt.xscale('log')
 plt.show()
 ```
 
-2. Get the apparent magnitude
+2. Get the absolute magnitudes (without MESA)
+
+```
+# logL, logR, logT are solar units
+age, abs_mag = mesa_mag.get_absolute_magnitude_from_raw(age, logL, logR, logT, filter_name)
+```
+
+3. Get the apparent magnitude
 
 ```python
 import mesa_mag

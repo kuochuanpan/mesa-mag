@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '24.11.21'
+VERSION = '26.02.09'
 DESCRIPTION = 'Convert MESA data into magnitudes.'
 LONG_DESCRIPTION = 'Convert MESA data into magnitudes.'
 
@@ -14,7 +14,7 @@ setup(
     license='MIT',
     packages=find_packages(),
     package_data={'mesa_mag': ['filters/*.dat']},
-    install_requires=['numpy',],
+    install_requires=['numpy','matplotlib'],
 
     classifiers=[
         "Development Status :: 1 - Planning",

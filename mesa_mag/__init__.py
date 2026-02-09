@@ -1,2 +1,2 @@
 from mesa_mag.loader import load_mesa, load_filter
-from mesa_mag.conversions import get_absolute_magnitude, get_apparent_magnitude
+from mesa_mag.conversions import get_absolute_magnitude, get_apparent_magnitude, get_absolute_magnitude_from_raw
